@@ -3,8 +3,6 @@ import "./index";
 import "./index.css";
 import "./alpay-picture";
 
-
-
 function App() {
   const greet = 'Hello';
   const ownerName = 'Alpay';

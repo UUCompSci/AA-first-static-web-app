@@ -3,14 +3,19 @@ import "./index";
 import "./index.css";
 import "./alpay-picture";
 
+import React, { useState, useEffect } from 'react';
+
 function App() {
-  const greet = 'Hello';
-  const ownerName = 'Alpay';
-  const myImg = document.querySelector("img")
-  myImg.src ="alpay-picture.jpg";
-  return <div>Whatsup {greet} {ownerName}<br/>
-  
-  </div>;
+  const [data, setData] = useState('');
+
+  useEffect(() => {
+    (async function () {
+      const { text } = await( await fetch(`/api/message`)).json();
+      setData(text);
+    })();
+  });
+
+  return <div>{data}</div>;
 }
 
 export default App;
